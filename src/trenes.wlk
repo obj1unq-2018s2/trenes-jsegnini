@@ -5,19 +5,18 @@ class Formacion {
 	method totalVagones() {
 		return vagonesPasajeros + vagonesCarga
 	}
-	
 	method cantVagonesLivianos() {
-		return totalVagones().map {vagon => vagon.pesoMaximo() > 2500}.sum()
+		return self.totalVagones().map {vagon => vagon.pesoMaximo() > 2500}.sum()
 	}
 	method velMaxima(){
-		return locomotoras.map {locom => locom.velMaxima()}.min
+		return locomotoras.map {locom => locom.velMaxima()}.min()
 	}
 	method eficiente(){
-		return locomotoras.all({locom.arrastreUtil() >= locom.peso() * 5})
+		return locomotoras.all({locom => locom.arrastreUtil() >= locom.peso() * 5})
 	}
 	method puedeMoverse(){
 		var arrTotal = locomotoras.map {locom => locom.arrastreUtil()}.sum()
-		var pesoMaxTotal = totalVagones().map {vagon => vagon.pesoMaximo()}.sum()
+		var pesoMaxTotal = self.totalVagones().map {vagon => vagon.pesoMaximo()}.sum()
 		return arrTotal >= pesoMaxTotal
 	}
 	
@@ -31,8 +30,8 @@ class Deposito {
 class VagonPasajeros {
 	const property largo
 	const property anchoUtil
-	method pesoMaximo() {return cantPasajerosQueTransporta() * 80}
 	method cantPasajerosQueTransporta() = if (anchoUtil <= 2.5) largo * 8 else largo * 10
+	method pesoMaximo() {return self.cantPasajerosQueTransporta() * 80}
 	method cantCargaQueTransporta() {
 		return 0
 	}
