@@ -19,7 +19,19 @@ class Formacion {
 		var pesoMaxTotal = self.totalVagones().map {vagon => vagon.pesoMaximo()}.sum()
 		return arrTotal >= pesoMaxTotal
 	}
+	method estaBienArmada() {
+		return self.puedeMoverse()
+	}
+	method esCompleja() {
+		
+	}
 	
+}
+
+class FormacionDeCortaDistancia inherits Formacion {
+	override method estaBienArmada() {
+		return super() and not self.esCompleja()
+	}
 }
 
 class Deposito {
