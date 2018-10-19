@@ -58,7 +58,7 @@ describe "trenes" {
 	}
 	test "bien armadas" {
 		assert.notThat(for1.estaBienArmada()) //no puede moverse
-		assert.that(for2.estaBienArmada()) //pesa más de 10000 kgs (11200)
+		assert.that(for2.estaBienArmada()) // puede moverse, no es compleja
 		assert.notThat(for3.estaBienArmada()) //no puede moverse
 		assert.that(tl1.estaBienArmada()) //cumple con las conds de la clase TLD (punto 11)
 	}
