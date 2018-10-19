@@ -77,10 +77,12 @@ entonces delega algo en el objeto 2, y el objeto 2 para hacer lo que le pidió e
 delegar otra cosa en otro objeto 3) indicarla.
 
 ## Segunda Parte
-La administradora ferroviaria obtuvo la consesión para administrar también ramales de larga distancia 
+La administradora ferroviaria obtuvo la concesión para administrar también ramales de larga 
+distancia 
 y nos pide ayuda para extender el sistema para sus nuevas necesidades.
 
-Para poder llevar a cabo su negocio, la empresa tendrá formaciones de corta distancia y formaciones de 
+Para poder llevar a cabo su negocio, la empresa tendrá formaciones de corta distancia y 
+formaciones de 
 larga distancia. Ambas utilizan los mismos vagones y locomotoras.
 
 9. Queremos saber si una formación está bien armada. En todos los casos, una formación bien armada tiene 

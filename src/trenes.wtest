@@ -1,0 +1,17 @@
+import trenes.*
+
+// auto-generated at 19/10/2018 00:50:49
+test "exported test from REPL session" {
+	
+	var vag1 = new VagonPasajeros(largo=5, anchoUtil=3, cantBanios=1)
+	var vag3 = new VagonCarga(cargaMaxima=300)
+	var vag2 = new VagonPasajeros(largo=6, anchoUtil=3, cantBanios=1)
+	var loc1 = new Locomotora(peso=600, velMaxima=250, pesoMaxArrastre=4000)
+	var loc2 = new Locomotora(peso=800, velMaxima=250, pesoMaxArrastre=6000)
+	var for1 = new FormacionDeLargaDistancia(interurbanoCiudadesGrandes = true, vagones=[vag1, vag2, vag3], locomotoras=[loc1, loc2])
+	var tl1 = new TrenDeLargaDistancia(interurbanoCiudadesGrandes = true, vagones=[vag3, vag3, vag3], locomotoras=[loc1, loc1, loc2, loc2])
+	
+	
+	assert.that(tl1.estaBienArmada())
+	
+}
