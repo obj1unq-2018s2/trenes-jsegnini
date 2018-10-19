@@ -21,6 +21,9 @@ class Formacion {
 	method vagones() {
 		return vagones
 	}
+	method locomotoras() {
+		return locomotoras
+	}
 	
 	method cantVagonesLivianos() {
 		return vagones.filter {vagon => vagon.esLiviano()}.size()
@@ -59,15 +62,20 @@ class FormacionDeCortaDistancia inherits Formacion {
 class FormacionDeLargaDistancia inherits Formacion {
 	const property interurbanoCiudadesGrandes
 	override method estaBienArmada() {
-		return vagones.sum({vagon => vagon.cantPasajerosQueTransporta()}) 
+		return super() and vagones.sum({vagon => vagon.cantPasajerosQueTransporta()}) 
 		/ vagones.sum({vagon => vagon.cantBanios()}) <= 50
 	}
-	method limVelocidad() = if (self.interurbanoCiudadesGrandes()) 200 else 150
+	method limVelocidad() {
+		return self.velMaxima().min(if (self.interurbanoCiudadesGrandes()) 200 else 150)
+		}
 }
 
-class TrenDeLargaDistancia inherits FormacionDeLargaDistancia {
+class TrenDeAltaVelocidad inherits FormacionDeLargaDistancia {
 	override method estaBienArmada(){
 		return self.velMaxima() >= 250 and vagones.all ({vagon => vagon.esLiviano()})
+	}
+	override method limVelocidad() {
+		return super().max(400)
 	}
 }
 
